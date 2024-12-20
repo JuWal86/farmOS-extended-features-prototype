@@ -1,0 +1,36 @@
+<?php
+
+use Drupal\environment_calculator\Service\AssetCarbonCalculator;
+
+/**
+ * Implements hook_entity_insert().
+ */
+function environment_calculator_entity_insert(\Drupal\Core\Entity\EntityInterface $entity) {
+  if ($entity->getEntityTypeId() === 'asset') {
+    $calculator = \Drupal::service('environment_calculator.asset_carbon_calculator');
+    $adjustment = $calculator->calculateAssetEmission($entity);
+    $calculator->updateObservationLog($adjustment);
+  }
+}
+
+/**
+ * Implements hook_entity_update().
+ */
+function environment_calculator_entity_update(\Drupal\Core\Entity\EntityInterface $entity) {
+  if ($entity->getEntityTypeId() === 'asset') {
+    $calculator = \Drupal::service('environment_calculator.asset_carbon_calculator');
+    $adjustment = $calculator->calculateAssetEmission($entity);
+    $calculator->updateObservationLog($adjustment);
+  }
+}
+
+/**
+ * Implements hook_entity_delete().
+ */
+function environment_calculator_entity_delete(\Drupal\Core\Entity\EntityInterface $entity) {
+  if ($entity->getEntityTypeId() === 'asset') {
+    $calculator = \Drupal::service('environment_calculator.asset_carbon_calculator');
+    $adjustment = -$calculator->calculateAssetEmission($entity); // Subtract emissions.
+    $calculator->updateObservationLog($adjustment);
+  }
+}

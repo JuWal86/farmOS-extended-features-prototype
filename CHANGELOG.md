@@ -7,10 +7,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### Fixed
-
-- [Permissions page is blank #887](https://github.com/farmOS/farmOS/issues/887)
-
 ## [3.3.2] 2024-11-20
 
 ### Fixed

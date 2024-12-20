@@ -1,0 +1,9 @@
+name: 'Mock Sensors'
+type: module
+core_version_requirement: ^9 || ^10
+description: A module to simulate sensor data for testing.
+dependencies:
+  - node
+  - drupal:field
+  - drupal:text
+  - drupal:datetime

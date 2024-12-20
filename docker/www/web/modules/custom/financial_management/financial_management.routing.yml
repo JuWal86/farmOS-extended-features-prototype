@@ -1,0 +1,15 @@
+financial_management.overview:
+  path: '/financial-management'
+  defaults:
+    _controller: '\Drupal\financial_management\Controller\FinancialManagementController::overview'
+    _title: 'Financial Management Overview'
+  requirements:
+    _permission: 'access content'
+
+financial_management.add_record:
+  path: '/financial-management/add'
+  defaults:
+    _form: '\Drupal\financial_management\Form\FinancialManagementForm'
+    _title: 'Add Financial Record'
+  requirements:
+    _permission: 'access content'

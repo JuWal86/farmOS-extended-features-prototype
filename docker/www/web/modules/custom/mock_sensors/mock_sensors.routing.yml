@@ -1,0 +1,7 @@
+mock_sensors.display:
+  path: '/mock-sensors'
+  defaults:
+    _controller: '\Drupal\mock_sensors\Controller\MockSensorsController::display'
+    _title: 'Mock Sensors Data'
+  requirements:
+    _permission: 'access content'

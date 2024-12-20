@@ -1,0 +1,8 @@
+name: Financial Management
+description: Adds financial management features to farmOS.
+type: module
+package: Custom
+core_version_requirement: ^9 || ^10
+dependencies:
+  - farm:farm_entity
+  - log:log

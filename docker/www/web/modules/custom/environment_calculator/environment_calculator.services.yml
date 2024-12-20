@@ -1,0 +1,4 @@
+services:
+  environment_calculator.asset_carbon_calculator:
+    class: 'Drupal\environment_calculator\Service\AssetCarbonCalculator'
+    arguments: ['@entity_type.manager']

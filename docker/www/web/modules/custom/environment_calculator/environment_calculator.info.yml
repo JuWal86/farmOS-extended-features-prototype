@@ -1,0 +1,11 @@
+name: 'Environmental Calculator'
+type: module
+description: 'A prototype module for calculating environmental impacts in farmOS.'
+core_version_requirement: ^10 || ^9
+dependencies:
+  - drupal:jsonapi
+  - drupal:serialization
+  - drupal:file
+  - drupal:field
+  - drupal:log
+ 

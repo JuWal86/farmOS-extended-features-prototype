@@ -1,0 +1,15 @@
+environment_calculator.form:
+  path: '/environment-calculator'
+  defaults:
+    _form: '\Drupal\environment_calculator\Form\EnvironmentalCalculatorForm'
+    _title: 'Environmental Calculator'
+  requirements:
+    _permission: 'access content'
+
+environment_calculator.asset_carbon_results:
+  path: '/assets-carbon-log'
+  defaults:
+    _controller: '\Drupal\environment_calculator\Controller\AssetCalculatorController::logCarbonResults'
+    _title: 'Calculate Asset Carbon Emissions'
+  requirements:
+    _permission: 'access content'

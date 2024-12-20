@@ -1,0 +1,7 @@
+mock_sensor_js:
+  version: 1.x
+  js:
+    js/mock_sensor_data.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal

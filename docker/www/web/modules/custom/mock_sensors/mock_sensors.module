@@ -1,0 +1,42 @@
+<?php
+
+use Drupal\Core\State\StateInterface;
+
+/**
+ * Implements hook_block_info().
+ */
+function mock_sensors_block_info() {
+  return [
+    'mock_sensors_alert_block' => [
+      'info' => t('Mock Sensors Alerts'),
+      'description' => t('Displays alerts for mock sensor thresholds.'),
+    ],
+  ];
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function mock_sensors_block_view($delta = '') {
+  if ($delta == 'mock_sensors_alert_block') {
+    $state = \Drupal::state();
+    $sensor_data = $state->get('mock_sensor_data', []);
+    $alerts = [];
+
+    // Get the latest alerts.
+    if ($sensor_data) {
+      $latest_entry = end($sensor_data);
+      $alerts = $latest_entry['alerts'] ?? [];
+    }
+
+    // Render active alerts.
+    return [
+      '#markup' => !empty($alerts)
+        ? '<div style="color:red; font-weight:bold;">Active Alerts: ' . implode(', ', $alerts) . '</div>'
+        : '<div>No active alerts.</div>',
+      '#cache' => ['max-age' => 0], // Ensure block does not cache.
+    ];
+  }
+}
+
+
